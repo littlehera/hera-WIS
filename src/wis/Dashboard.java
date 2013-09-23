@@ -41,6 +41,7 @@ public class Dashboard extends javax.swing.JFrame {
         logout_item = new javax.swing.JMenuItem();
         exit_item = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WIS - Dashboard");
@@ -78,6 +79,10 @@ public class Dashboard extends javax.swing.JFrame {
 
         editMenu.setMnemonic('e');
         editMenu.setText("Edit");
+
+        jMenuItem1.setText("Add Items");
+        editMenu.add(jMenuItem1);
+
         jMenuBar1.add(editMenu);
 
         setJMenuBar(jMenuBar1);
@@ -143,6 +148,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JMenuItem exit_item;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem loadDB_item;
     private javax.swing.JMenuItem logout_item;
     // End of variables declaration//GEN-END:variables
