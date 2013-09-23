@@ -10,6 +10,7 @@ package wis;
  */
 public class Dashboard extends javax.swing.JFrame {
 
+    private static empLogin login = new empLogin();
     /**
      * Creates new form Dashboard
      */
@@ -46,6 +47,11 @@ public class Dashboard extends javax.swing.JFrame {
 
         logout_item.setMnemonic('l');
         logout_item.setText("Logout..");
+        logout_item.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logout_itemActionPerformed(evt);
+            }
+        });
         fileMenu.add(logout_item);
 
         exit_item.setMnemonic('x');
@@ -72,6 +78,11 @@ public class Dashboard extends javax.swing.JFrame {
     private void exit_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_itemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exit_itemActionPerformed
+
+    private void logout_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_itemActionPerformed
+       this.dispose();
+       login.setVisible(true);
+    }//GEN-LAST:event_logout_itemActionPerformed
 
     /**
      * @param args the command line arguments
