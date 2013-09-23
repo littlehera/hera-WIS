@@ -4,6 +4,9 @@
  */
 package wis;
 
+import java.awt.Frame;
+import java.awt.Toolkit;
+
 /**
  *
  * @author HAB VILLANUEVA
@@ -11,11 +14,16 @@ package wis;
 public class Dashboard extends javax.swing.JFrame {
 
     private static empLogin login = new empLogin();
+    private static Dashboard dashboard = new Dashboard();
+    private static Toolkit tk = Toolkit.getDefaultToolkit();  
+    private static int xSize;  
+    private static int ySize;
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
         initComponents();
+    
     }
 
     /**
@@ -36,7 +44,9 @@ public class Dashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WIS - Dashboard");
-        setMinimumSize(getPreferredSize());
+        setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
+        setMaximumSize(java.awt.Toolkit.getDefaultToolkit().getScreenSize());
+        setMinimumSize(getMaximumSize());
         setPreferredSize(new java.awt.Dimension(500, 500));
 
         fileMenu.setMnemonic('f');
@@ -88,6 +98,8 @@ public class Dashboard extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
+           
         /*
          * Set the Nimbus look and feel
          */
@@ -121,9 +133,10 @@ public class Dashboard extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new Dashboard().setVisible(true);
+                dashboard.setVisible(true);
             }
         });
+        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu editMenu;
