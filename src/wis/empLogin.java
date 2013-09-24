@@ -28,7 +28,6 @@ public class empLogin extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         username = new javax.swing.JTextField();
         usernameLabel = new javax.swing.JLabel();
@@ -41,15 +40,19 @@ public class empLogin extends javax.swing.JFrame {
         setBounds(new java.awt.Rectangle(500, 250, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximizedBounds(getMaximizedBounds());
-        setMaximumSize(getPreferredSize());
         setMinimumSize(getPreferredSize());
-        setName("WISLogin");
+        setName("WISLogin"); // NOI18N
         setResizable(false);
         setType(java.awt.Window.Type.UTILITY);
 
         username.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         username.setText("Username");
         username.setToolTipText("Please enter username here");
+        username.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usernameMouseClicked(evt);
+            }
+        });
 
         usernameLabel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         usernameLabel.setText("Username");
@@ -61,6 +64,11 @@ public class empLogin extends javax.swing.JFrame {
         password.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         password.setText("password");
         password.setToolTipText("Enter Password Here");
+        password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passwordMouseClicked(evt);
+            }
+        });
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
@@ -112,14 +120,12 @@ public class empLogin extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        getAccessibleContext().setAccessibleName("WISLogin");
         getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
-
         user_pass_verification(username.getText().toString(),password.getText().toString());
     }//GEN-LAST:event_passwordActionPerformed
 
@@ -127,6 +133,14 @@ public class empLogin extends javax.swing.JFrame {
         user_pass_verification(username.getText().toString(),password.getText().toString());
 
     }//GEN-LAST:event_logInButtonActionPerformed
+
+    private void usernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameMouseClicked
+        username.setText("");
+    }//GEN-LAST:event_usernameMouseClicked
+
+    private void passwordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseClicked
+       password.setText("");
+    }//GEN-LAST:event_passwordMouseClicked
 
     private void user_pass_verification(String enteredName, String enteredPass)
     {
