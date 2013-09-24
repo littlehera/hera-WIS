@@ -16,6 +16,8 @@ public class Dashboard extends javax.swing.JFrame {
     private static empLogin login = new empLogin();
     private static Dashboard dashboard = new Dashboard();
     private static Toolkit tk = Toolkit.getDefaultToolkit();  
+    private static Transactions transaction = new Transactions();
+    //private static Inventory inventory = new Inventory();
     private static int xSize;  
     private static int ySize;
     /**
@@ -23,7 +25,8 @@ public class Dashboard extends javax.swing.JFrame {
      */
     public Dashboard() {
         initComponents();
-    
+        jTabbedPane1.addTab("Transaction",transaction);
+        //jTabbedPane1.addTab("Inventory",inventory);
     }
 
     /**
@@ -35,20 +38,32 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        creditsLabel = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         loadDB_item = new javax.swing.JMenuItem();
         logout_item = new javax.swing.JMenuItem();
         exit_item = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WIS - Dashboard");
         setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
         setMaximumSize(java.awt.Toolkit.getDefaultToolkit().getScreenSize());
-        setMinimumSize(getMaximumSize());
+        setMinimumSize(getPreferredSize());
         setPreferredSize(new java.awt.Dimension(500, 500));
+
+        creditsLabel.setText("Powered By Java    Herabelle M. Villanueva 2013");
+        creditsLabel.setToolTipText("");
+        jPanel1.add(creditsLabel);
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
+
+        jTabbedPane1.setToolTipText("");
+        jTabbedPane1.setName("User Info"); // NOI18N
+        getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
+        jTabbedPane1.getAccessibleContext().setAccessibleName("User Info");
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -76,14 +91,6 @@ public class Dashboard extends javax.swing.JFrame {
         fileMenu.add(exit_item);
 
         jMenuBar1.add(fileMenu);
-
-        editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
-
-        jMenuItem1.setText("Add Items");
-        editMenu.add(jMenuItem1);
-
-        jMenuBar1.add(editMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -144,11 +151,12 @@ public class Dashboard extends javax.swing.JFrame {
         
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu editMenu;
+    private javax.swing.JLabel creditsLabel;
     private javax.swing.JMenuItem exit_item;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JMenuItem loadDB_item;
     private javax.swing.JMenuItem logout_item;
     // End of variables declaration//GEN-END:variables
