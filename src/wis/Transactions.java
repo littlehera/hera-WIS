@@ -26,28 +26,245 @@ public class Transactions extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        transTable = new javax.swing.JTable();
+        transLabel = new javax.swing.JLabel();
+        addTrans_panel = new javax.swing.JPanel();
+        addTransLabel = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        transactionDesc = new javax.swing.JTextField();
+        dateLabel = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        transactionType = new javax.swing.JComboBox();
+        transactionDate = new javax.swing.JFormattedTextField();
+        transaction_addButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        TransListLabel = new javax.swing.JLabel();
+        transaction_orderBy = new javax.swing.JComboBox();
+        jSeparator2 = new javax.swing.JSeparator();
+        SearchLabel = new javax.swing.JLabel();
+        searchString = new javax.swing.JTextField();
+        search_parameter = new javax.swing.JComboBox();
+        jLabel6 = new javax.swing.JLabel();
+        searchButton = new javax.swing.JButton();
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setLayout(new java.awt.BorderLayout());
 
         jLabel1.setText("This is for transactions. Yeah.. Hahahaha. >_<");
+        add(jLabel1, java.awt.BorderLayout.PAGE_END);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addComponent(jLabel1)
-                .addContainerGap(150, Short.MAX_VALUE))
+        transTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "TransID", "Date", "Type", "Item", "Qty", "Price per Unit", "TOTAL (Trans)"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(transTable);
+        transTable.getColumnModel().getColumn(1).setResizable(false);
+
+        add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        transLabel.setFont(new java.awt.Font("Calibri Light", 1, 24)); // NOI18N
+        transLabel.setText("Transactions");
+        transLabel.setToolTipText("");
+        add(transLabel, java.awt.BorderLayout.PAGE_START);
+
+        addTransLabel.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        addTransLabel.setText("Add a Transaction");
+
+        jLabel3.setText("OR/Transaction ID");
+
+        transactionDesc.setToolTipText("");
+        transactionDesc.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+
+        dateLabel.setText("Date of Transaction");
+
+        jLabel5.setText("Type of Transaction");
+
+        transactionType.setMaximumRowCount(2);
+        transactionType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "WITHDRAWAL", "DEPOSIT" }));
+
+        transactionDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        transactionDate.setText("MM/DD/YYYY");
+        transactionDate.setToolTipText("Month/Date/Year Format   Eg. 10/22/1990");
+
+        transaction_addButton.setText("ADD TRANSACTION");
+        transaction_addButton.setToolTipText("Press to add items and save the transaction");
+
+        TransListLabel.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        TransListLabel.setText("List Transactions By...");
+
+        transaction_orderBy.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Transaction ID", "Date Of Transaction", "Type of Transaction", "Items", "Quantity", "Price per Unit", "Total Worth (Transaction)" }));
+        transaction_orderBy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transaction_orderByActionPerformed(evt);
+            }
+        });
+
+        SearchLabel.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        SearchLabel.setText("Search for..");
+
+        searchString.setText("//Eg. 10/22/90, WITHDRAWAL");
+        searchString.setToolTipText("enter text here..");
+
+        search_parameter.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Transaction ID", "Date Of Transaction", "Type of Transaction", "Items" }));
+        search_parameter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_parameterActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("What do you want to look for?");
+
+        searchButton.setText("SEARCH");
+
+        javax.swing.GroupLayout addTrans_panelLayout = new javax.swing.GroupLayout(addTrans_panel);
+        addTrans_panel.setLayout(addTrans_panelLayout);
+        addTrans_panelLayout.setHorizontalGroup(
+            addTrans_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator1)
+            .addComponent(jSeparator2)
+            .addGroup(addTrans_panelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(addTrans_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addTrans_panelLayout.createSequentialGroup()
+                        .addGroup(addTrans_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(addTrans_panelLayout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                                .addGap(135, 135, 135))
+                            .addGroup(addTrans_panelLayout.createSequentialGroup()
+                                .addComponent(dateLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(93, 93, 93))
+                            .addGroup(addTrans_panelLayout.createSequentialGroup()
+                                .addComponent(transactionType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(93, 93, 93))
+                            .addGroup(addTrans_panelLayout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(92, 92, 92))
+                            .addComponent(addTransLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(16, 16, 16))
+                    .addGroup(addTrans_panelLayout.createSequentialGroup()
+                        .addGroup(addTrans_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(transactionDesc, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(transactionDate, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(transaction_addButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addTrans_panelLayout.createSequentialGroup()
+                        .addComponent(TransListLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(addTrans_panelLayout.createSequentialGroup()
+                        .addComponent(transaction_orderBy, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addComponent(SearchLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addTrans_panelLayout.createSequentialGroup()
+                        .addComponent(search_parameter, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addTrans_panelLayout.createSequentialGroup()
+                        .addGroup(addTrans_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(searchButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(searchString))
+                        .addContainerGap())))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addComponent(jLabel1)
-                .addContainerGap(167, Short.MAX_VALUE))
+        addTrans_panelLayout.setVerticalGroup(
+            addTrans_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addTrans_panelLayout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addComponent(addTransLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(transactionDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dateLabel)
+                .addGap(2, 2, 2)
+                .addComponent(transactionDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(transactionType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(transaction_addButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TransListLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(transaction_orderBy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SearchLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(search_parameter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchString, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchButton)
+                .addContainerGap())
         );
+
+        add(addTrans_panel, java.awt.BorderLayout.LINE_START);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void transaction_orderByActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transaction_orderByActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_transaction_orderByActionPerformed
+
+    private void search_parameterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_parameterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search_parameterActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel SearchLabel;
+    private javax.swing.JLabel TransListLabel;
+    private javax.swing.JLabel addTransLabel;
+    private javax.swing.JPanel addTrans_panel;
+    private javax.swing.JLabel dateLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JTextField searchString;
+    private javax.swing.JComboBox search_parameter;
+    private javax.swing.JLabel transLabel;
+    private javax.swing.JTable transTable;
+    private javax.swing.JFormattedTextField transactionDate;
+    private javax.swing.JTextField transactionDesc;
+    private javax.swing.JComboBox transactionType;
+    private javax.swing.JButton transaction_addButton;
+    private javax.swing.JComboBox transaction_orderBy;
     // End of variables declaration//GEN-END:variables
 }
